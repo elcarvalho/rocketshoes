@@ -7,7 +7,15 @@ import { ProductList } from './styles';
 export default class Home extends Component {
 
   state = {
-    
+    products: []
+  }
+
+  async componentDidMount() {
+    const response = await api.get('products');
+
+    this.setState({
+      products: response.data
+    })
   }
 
   render() {
