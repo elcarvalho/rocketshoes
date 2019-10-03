@@ -8,7 +8,7 @@ import { Container, Cart } from './styles';
 
 import logo from '../../assets/images/logo.svg';
 
-function Header() {
+function Header({ cart }) {
   return (
     <Container>
       <Link to="/">
@@ -26,4 +26,6 @@ function Header() {
   );
 }
 
-export default connect()(Header)
+export default connect(state => ({
+  cart: state.cart
+}))(Header)
