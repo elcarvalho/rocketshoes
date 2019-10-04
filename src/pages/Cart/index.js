@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from "react-redux";
 
 import { MdRemoveCircleOutline, MdAddCircleOutline, MdDelete } from 'react-icons/md'
 
 import { Container, ProductTable, Total } from './styles';
 
-export default function Cart() {
+function Cart({ cart }) {
   return (
     <Container>
       <ProductTable>
@@ -59,3 +60,9 @@ export default function Cart() {
     </Container>
   );
 }
+
+const mapStateToProps = state => ({
+  cart: state.cart
+});
+
+export default connect(mapStateToProps)(Cart)
